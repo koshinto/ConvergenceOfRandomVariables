@@ -2,20 +2,20 @@
 class RandomNumber {
     var result:[Int:Int] = [:]
     
-    func getNumber() -> Int {
-        return Int.random(in: 1...3)
+    func getNumber(_ collection:Int) -> Int {
+        return Int.random(in: 1...collection)
     }
     
-    func setNumber() {
-        let n = self.getNumber()
+    func setNumber(_ collection:Int) {
+        let n = self.getNumber(collection)
         let key = zip([n], [1])
         result = result.merging(key, uniquingKeysWith: + )
     }
     
-    func runToResult(times:Int) {
+    func runToResult(times:Int, collection:Int) {
         var c = 0
         while c < times {
-            self.setNumber()
+            self.setNumber(collection)
             c += 1
         }
         print(result)
@@ -28,4 +28,4 @@ class RandomNumber {
 
 // Example of execution.
 
-  RandomNumber().runToResult(times: 100)
+  RandomNumber().runToResult(times: 100, collection: 3)
